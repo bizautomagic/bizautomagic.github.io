@@ -81,9 +81,6 @@
     }
     .portfolio-item img {
         width: 100%;
-        height: auto;
-        max-height: 80vh;
-        object-fit: contain;
         display: block;
         border-radius: 8px;
     }
@@ -219,15 +216,15 @@
     <p>Some of our recent high-converting projects for local businesses.</p>
     <div class="portfolio-grid">
         <div class="portfolio-item" onclick="openLightbox(0)">
-            <img src="images/thumb-zarascreencap.jpg" data-full="images/zarascreencap.png" alt="Zara Beauty Landing Page" loading="lazy" />
+            <img src="images/zarascreencap.png" alt="Zara Beauty Landing Page" />
             <div class="portfolio-caption">Zara Beauty — Increased appointment bookings by 72% within 30 days.</div>
         </div>
         <div class="portfolio-item" onclick="openLightbox(1)">
-            <img src="images/thumb-bulganiscreencap.jpg" data-full="images/bulganiscreencap.png" alt="Bulgani Urban Homes Landing Page" loading="lazy" />
+            <img src="images/bulganiscreencap.png" alt="Bulgani Urban Homes Landing Page" />
             <div class="portfolio-caption">Bulgani Urban Homes — Captured 150+ qualified real estate leads in 2 weeks.</div>
         </div>
         <div class="portfolio-item" onclick="openLightbox(2)">
-            <img src="images/thumb-glowupscreencap.jpg" data-full="images/glowupscreencap.png" alt="GlowUp Studio Landing Page" loading="lazy" />
+            <img src="images/glowupscreencap.png" alt="GlowUp Studio Landing Page" />
             <div class="portfolio-caption">GlowUp Studio — Increased appointments by 40% in 1 month.</div>
         </div>
     </div>
@@ -282,20 +279,21 @@
 </div>
 
 <script>
-    const portfolioItems = document.querySelectorAll('.portfolio-item img');
-    const images = [];
-    const captions = [];
+    const images = [
+        "zara-beauty.jpg",
+        "bulgani-urban-homes.jpg",
+        "elite-fitness.jpg"
+    ];
+    const captions = [
+        "Zara Beauty — Increased appointment bookings by 72% within 30 days.",
+        "Bulgani Urban Homes — Captured 150+ qualified real estate leads in 2 weeks.",
+        "Elite Fitness — Boosted membership signups by 40% in 1 month."
+    ];
     const projectLinks = [
         "https://bizautomagic.github.io/Zara-Beauty",
         "https://app.gohighlevel.com/v2/preview/oqXcm8UJ4IzfDHyrGScw?notrack=true",
         "https://bizautomagic.github.io/GlowUp-Studio"
     ];
-
-    portfolioItems.forEach((img, index) => {
-        images.push(img.dataset.full);
-        captions.push(img.alt);
-    });
-
     let currentIndex = 0;
 
     function openLightbox(index) {
@@ -304,6 +302,7 @@
         const caption = document.getElementById("lightbox-caption");
         img.src = images[currentIndex];
         caption.textContent = captions[currentIndex];
+        img.style.opacity = "1";
         document.getElementById("lightbox").style.display = "flex";
     }
 
@@ -338,12 +337,60 @@
         changeImage(newIndex);
     }
 
-    document.addEventListener("keydown", function(e) {
-        if (document.getElementById("lightbox").style.display !== "flex") return;
-        if (e.key === "ArrowRight") nextImage();
-        else if (e.key === "ArrowLeft") prevImage();
-        else if (e.key === "Escape") closeLightbox();
+    document.getElementById("lightbox").addEventListener("click", function(e) {
+        if (e.target === this) {
+            closeLightbox();
+        }
     });
+
+    document.addEventListener("keydown", function(e) {
+        const lightboxVisible = document.getElementById("lightbox").style.display === "flex";
+        if (!lightboxVisible) return;
+
+        if (e.key === "ArrowRight") {
+            nextImage();
+        } else if (e.key === "ArrowLeft") {
+            prevImage();
+        } else if (e.key === "Escape") {
+            closeLightbox();
+        }
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        const swipeThreshold = 50;
+        if (swipeDistance > swipeThreshold) {
+            prevImage();
+        } else if (swipeDistance < -swipeThreshold) {
+            nextImage();
+        }
+    }
+
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    lightboxImg.addEventListener("touchstart", function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    lightboxImg.addEventListener("touchend", function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
+    function sendToWhatsApp() {
+        let name = document.getElementById("name").value;
+        let business = document.getElementById("business").value;
+        let phone = document.getElementById("phone").value;
+        let message = document.getElementById("message").value;
+
+        let whatsappMessage = `Hello, my name is ${name}. My business is ${business}. Phone: ${phone}. Message: ${message}`;
+        let url = `https://wa.me/2348075113950?text=${encodeURIComponent(whatsappMessage)}`;
+
+        window.open(url, '_blank');
+    }
 </script>
 
 </body>
