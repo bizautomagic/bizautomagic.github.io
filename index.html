@@ -8,8 +8,8 @@
     body {
         margin: 0;
         font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(135deg, #0f172a, #1e293b);
-        color: white;
+        background: linear-gradient(135deg, #e5e7eb, #f3f4f6); /* Light gray gradient */
+        color: #1f2937; /* Dark gray text for contrast */
     }
     header {
         text-align: center;
@@ -22,11 +22,13 @@
     header h1 {
         font-size: 2rem;
         margin: 0;
+        color: #ef4444; /* Red from logo */
     }
     header p {
         font-size: 1.1rem;
         opacity: 0.9;
         margin-top: 4px;
+        color: #1f2937;
     }
     section.offer, section.portfolio, section.products {
         max-width: 1200px;
@@ -37,14 +39,16 @@
     section.offer h2, section.portfolio h2, section.products h2 {
         font-size: 2rem;
         margin-bottom: 20px;
+        color: #ef4444; /* Red heading */
     }
     section.offer p, section.products p {
         font-size: 1.15rem;
         line-height: 1.6;
         opacity: 0.95;
+        color: #1f2937;
     }
     .cta {
-        background: #06b6d4;
+        background: #93c5fd; /* Blue-gray from logo */
         color: white;
         padding: 15px 30px;
         border: none;
@@ -57,7 +61,7 @@
         transition: background 0.3s ease;
     }
     .cta:hover {
-        background: #0891b2;
+        background: #60a5fa; /* Darker blue-gray */
     }
     .portfolio-grid, .products-grid {
         display: grid;
@@ -71,15 +75,15 @@
         }
     }
     .portfolio-item, .product-item {
-        background: #1e293b;
+        background: #ffffff; /* White background for items */
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         padding: 20px;
         transition: transform 0.3s ease;
         cursor: pointer;
         text-decoration: none;
-        color: white;
+        color: #1f2937;
     }
     .portfolio-item img {
         width: 100%;
@@ -93,18 +97,19 @@
         padding-top: 15px;
         font-size: 1rem;
         opacity: 0.9;
+        color: #1f2937;
     }
     .product-price {
         font-size: 1.2rem;
-        color: #06b6d4;
+        color: #ef4444; /* Red price */
         font-weight: bold;
         margin-top: 10px;
     }
     .highlighted {
-        border: 2px solid #06b6d4;
+        border: 2px solid #ef4444; /* Red border for highlighted */
     }
     section.form-section {
-        background: #111827;
+        background: #e5e7eb; /* Light gray background */
         padding: 50px 20px;
         text-align: center;
     }
@@ -116,15 +121,17 @@
         width: 100%;
         padding: 15px;
         margin: 10px 0;
-        border: none;
+        border: 1px solid #d1d5db; /* Subtle border */
         border-radius: 8px;
         font-size: 1rem;
+        background: #ffffff;
+        color: #1f2937;
     }
     button {
         width: 100%;
         padding: 15px;
         font-size: 1.2rem;
-        background: #06b6d4;
+        background: #93c5fd; /* Blue-gray button */
         color: white;
         border: none;
         border-radius: 8px;
@@ -132,16 +139,16 @@
         transition: background 0.3s ease;
     }
     button:hover {
-        background: #0891b2;
+        background: #60a5fa; /* Darker blue-gray */
     }
     footer {
         text-align: center;
         padding: 20px;
         font-size: 0.9rem;
         opacity: 0.6;
+        color: #1f2937;
     }
-</style>
-<link rel="icon" type="image/png" href="images/automagiclogo.png">
+</style><link rel="icon" type="image/png" href="images/automagiclogo.png">
 </head>
 <body>
 
