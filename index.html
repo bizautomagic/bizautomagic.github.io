@@ -48,37 +48,21 @@
         color: #1f2937;
     }
     .cta {
-    background: #3b82f6; /* Darker blue */
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 30px;
-    transition: background 0.3s ease;
-}
-.cta:hover {
-    background: #2563eb; /* Even darker blue on hover */
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.2rem;
-    background: #3b82f6; /* Darker blue button */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-button:hover {
-    background: #2563eb; /* Darker hover blue */
-}
-
+        background: #3b82f6; /* Darker blue */
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 30px;
+        transition: background 0.3s ease;
+    }
+    .cta:hover {
+        background: #2563eb; /* Even darker blue on hover */
+    }
     .portfolio-grid, .products-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -115,14 +99,25 @@ button:hover {
         opacity: 0.9;
         color: #1f2937;
     }
-    .product-price {
-        font-size: 1.2rem;
-        color: #b91c1c; /* Darker red price */
-        font-weight: bold;
-        margin-top: 10px;
+    .products {
+        border: 2px solid #b91c1c; /* Red border around entire section */
+        border-radius: 12px;
+        padding: 40px 20px;
     }
-    .highlighted {
-        border: 2px solid #b91c1c; /* Darker red border for highlighted */
+    .product-cta {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.1rem;
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background 0.3s ease;
+    }
+    .product-cta:hover {
+        background: #2563eb;
     }
     section.form-section {
         background: #e5e7eb; /* Light gray background */
@@ -205,28 +200,28 @@ button:hover {
         <div class="product-item">
             <h3>Landing Page</h3>
             <p>High-converting single-page funnel focused on one offer — appointments or sale one product to many customers.</p>
-            <div class="product-price">₦100,000</div>
+            <button class="product-cta">Get Started</button>
         </div>
         <div class="product-item">
             <h3>Online Store</h3>
             <p>Process orders and track inventory for multiple products</p>
-            <div class="product-price">₦100,000</div>
+            <button class="product-cta">Get Started</button>
         </div>
-        <div class="product-item highlighted">
+        <div class="product-item">
             <h3>One-Click Referrals & Repeat Customers</h3>
             <p>You do good work and your customers love you. Let's use special offers to remind them to tell their friends.</p>
             <p>Just click a button and we'll take care of the rest.</p>
-            <div class="product-price">₦100,000</div>
+            <button class="product-cta">Get Started</button>
         </div>
         <div class="product-item">
             <h3>Multi-Page Website</h3>
             <p>It's like having an online brochure that instantly turns leads into text conversations that go DIRECTLY to your phone.</p>
-            <div class="product-price">₦100,000</div>
+            <button class="product-cta">Get Started</button>
         </div>
         <div class="product-item">
             <h3>Magic Review Funnel</h3>
             <p><strong>5-Star Reviews Only</strong> — You can’t make everyone happy, but we’ll take the guesswork out by guiding your customer to leave five stars, every time.</p>
-            <div class="product-price">₦100,000</div>
+            <button class="product-cta">Get Started</button>
         </div>
     </div>
 </section>
